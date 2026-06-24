@@ -266,7 +266,7 @@ async function createP5(outDir) {
     const sum = 46; 
     const vaf = 0.65 + sum * 0.01;
     s.addText(`Итого сумма баллов (DI) = 46 (арифметически точно!)  →  VAF = 0.65 + 46 * 0.01 = ${vaf.toFixed(2)}`, {
-      x: MX, y: CY + CH - 0.32, w: CW, h: 0.3, color: C.NAVY, fontSize: 11, bold: true, fontFace: "Cambria" });
+      x: MX, y: CY + CH - 0.32, w: CW, h: 0.3, color: C.NAVY, fontSize: 11, bold: true, fontFace: "Cambria", align: "left" });
   }
 
   // Slide 12: Итоговый расчет FP (было две колонки -> одна)

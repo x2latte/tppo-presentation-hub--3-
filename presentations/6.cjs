@@ -226,7 +226,7 @@ async function createP6(outDir) {
     s.addText("Непрерывная интеграция (CI)", { x: MX + 0.15, y: CY + 0.12, w: 3.5, h: 0.35,
       color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria" });
     s.addText("• Разработчики не могут залить код в ветку `main` без прохождения тестов.\n• GitHub Actions автоматически разворачивает чистую среду Node.js.\n• Устанавливает зависимости из lock-файла.\n• Запускает линтер ESLint, сборщик и прогоняет модульные и интеграционные тесты Jest.", {
-      x: MX + 0.15, y: CY + 0.55, w: 3.5, h: CH - 0.8, color: C.DARK, fontSize: 11, fontFace: "Times New Roman" });
+      x: MX + 0.15, y: CY + 0.55, w: 3.5, h: CH - 0.8, color: C.DARK, fontSize: 11, fontFace: "Times New Roman", align: "left", valign: "top" });
 
     codeBox(s, pres, MX + 4.1, CY, 5.06, CH,
       "name: Continuous Integration\non:\n  pull_request:\n    branches: [ main ]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - uses: actions/setup-node@v3\n      - run: npm ci\n      - run: npm run lint\n      - run: npm run test:coverage\n      - run: npm run build", 10.5);
