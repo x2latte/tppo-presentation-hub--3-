@@ -14,7 +14,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Постановка практической задачи", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "• Оценить трудоёмкость и сроки разработки клиентского портала.\n\n" +
@@ -22,7 +22,7 @@ async function createP5(outDir) {
       "• Применить метод функциональных точек (FPA) к реальным функциям проекта TPPO и получить обоснованную оценку объёма работ.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -33,7 +33,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Сущность метода FPA и его применение", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Метод функциональных точек (Function Point Analysis, FPA) по стандарту IFPUG — это методика измерения размера ПО с точки зрения логических функций, предоставляемых конечному пользователю.\n\n" +
@@ -44,7 +44,7 @@ async function createP5(outDir) {
       "• Сравнение производительности разных команд в компании.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -55,7 +55,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Функции транзакций и функции данных", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Функции транзакций:\n" +
@@ -67,7 +67,7 @@ async function createP5(outDir) {
       "• EIF (External Interface Files) — внешние логические файлы, читаемые из сторонних систем (интеграционная реплика базы данных 1С).",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -78,7 +78,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Определение EI и примеры в client-portal", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Внешний ввод — это элементарный процесс, в котором данные пересекают границу системы извне для добавления, изменения или удаления записей в логических файлах ILF.\n\n" +
@@ -89,7 +89,7 @@ async function createP5(outDir) {
       "• Изменение личных данных пользователя в настройках профиля.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -100,7 +100,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Определение EO и примеры в client-portal", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Внешний вывод — это процесс, отправляющий результаты расчетов или подготовленные данные за пределы системы. Логика обязательно должна содержать математические расчеты или изменение состояний.\n\n" +
@@ -110,7 +110,7 @@ async function createP5(outDir) {
       "• Автоматическая отправка уведомления клиенту о назначенном специалисте.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -121,7 +121,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Определение EQ и примеры в client-portal", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Внешний запрос — это процесс вывода данных, который считывает записи из ILF/EIF, но не выполняет никаких математических расчетов, формул или изменений состояния.\n\n" +
@@ -132,7 +132,7 @@ async function createP5(outDir) {
       "• Поиск по ключевым словам в справочнике конфигураций 1С.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -143,7 +143,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Определение ILF и примеры в client-portal", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Внутренний логический файл — это логически связанная группа данных, хранящаяся и изменяемая внутри нашей системы с помощью транзакций EI.\n\n" +
@@ -155,7 +155,7 @@ async function createP5(outDir) {
       "• Таблица `outbox` — очередь интеграционных событий для 1С.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -166,7 +166,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Определение EIF и примеры в client-portal", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Внешний интерфейсный файл — это логически связанная группа данных, используемая нашей системой для ссылок и запросов, но полностью управляемая и изменяемая другой внешней системой.\n\n" +
@@ -175,7 +175,7 @@ async function createP5(outDir) {
       "• Наш портал лишь читает эти данные по мере синхронизации, но изменять договоры внутри портала категорически запрещено.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -204,7 +204,7 @@ async function createP5(outDir) {
         { text: rows[6][5], options: { fill: { color: C.NAVY }, color: C.WHITE, bold: true, align: "center", fontFace: "Times New Roman" } },
       ]
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 11, fontFace: "Times New Roman", align: "left", valign: "top",
+      fontSize: 13, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.2, 3.2, 1.2, 0.9, 0.8, 0.86], rowH: 0.52 });
   }
@@ -215,7 +215,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Назначение поправок (VAF) и шкала оценок", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Невыровненные функциональные точки UFP оценивают только объем данных. Но сложность написания кода зависит еще от нефункциональных параметров: производительности, распределенности, надежности и т.д.\n\n" +
@@ -229,7 +229,7 @@ async function createP5(outDir) {
       "• 5 — Критическое влияние на всех уровнях.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -259,14 +259,14 @@ async function createP5(outDir) {
       hdr(header),
       ...rows.map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH - 0.45,
-      fontSize: 10, fontFace: "Times New Roman", align: "left", valign: "top",
+      fontSize: 13, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.3, color: C.ICE2 },
       colW: [0.4, 2.8, 0.6, 5.4], rowH: 0.28 });
 
     const sum = 46; 
     const vaf = 0.65 + sum * 0.01;
     s.addText(`Итого сумма баллов (DI) = 46 (арифметически точно!)  →  VAF = 0.65 + 46 * 0.01 = ${vaf.toFixed(2)}`, {
-      x: MX, y: CY + CH - 0.32, w: CW, h: 0.3, color: C.NAVY, fontSize: 11, bold: true, fontFace: "Cambria", align: "left" });
+      x: MX, y: CY + CH - 0.32, w: CW, h: 0.3, color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria", align: "left" });
   }
 
   // Slide 12: Итоговый расчет FP (было две колонки -> одна)
@@ -275,7 +275,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Математический расчет и значение для менеджмента", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Формула расчета выровненных функциональных точек:\n" +
@@ -291,7 +291,7 @@ async function createP5(outDir) {
       "• Прекрасная база для расчета плотности багов.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -302,7 +302,7 @@ async function createP5(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Перевод FP в строки кода и трудоемкость по COCOMO II", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Согласно средним таблицам перевода QSM:\n" +
@@ -320,12 +320,51 @@ async function createP5(outDir) {
       "• Вывод: команда из 2 разработчиков выполнит проект за ~7.8 месяцев реального времени (или 15.5 чел.-мес) с учетом коэффициента распределения.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
 
-  // Slide 14: Заключение
+  // === НОВЫЙ СЛАЙД 14: Сравнение ожидаемых и фактических результатов ===
+  {
+    const s = cs(pres, "Сравнение ожидаемых и фактических результатов");
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Сопоставление плановых показателей (из FP и COCOMO) с реальными данными проекта", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
+    });
+
+    // Данные для таблицы
+    const metrics = [
+      ["Показатель", "Плановое значение", "Фактическое значение", "Отклонение"],
+      ["Функциональные точки (FP)", "112", "112", "0%"],
+      ["Размер кода (KLOC)", "5.94", "8.93", "+50.3%"],
+      ["Трудоёмкость (чел.-мес)", "15.5", "3.94", "-74.6%"], // 629.6 ч / 160 = 3.935
+      ["Производительность кода (строк/час)", "~50 (среднее по отрасли)", "146.4", "+192.8%"],
+      ["Производительность документации (слов/час)", "~100 (среднее)", "115.0", "+15.0%"],
+    ];
+    const data = [
+      hdr(metrics[0]),
+      ...metrics.slice(1).map((row, i) => dr(row, i % 2 === 0))
+    ];
+    s.addTable(data, {
+      x: MX + 0.1, y: CY + 0.65, w: CW - 0.2, h: CH - 0.8,
+      fontSize: 14, fontFace: "Times New Roman", align: "left", valign: "top",
+      border: { pt: 0.5, color: C.ICE2 },
+      colW: [2.5, 2.0, 2.0, 2.0], rowH: 0.65
+    });
+
+    // Дополнительный краткий вывод (под таблицей, если есть место, или отдельно)
+    s.addText(
+      "Вывод: Фактический объём кода оказался на 50% больше оценённого по FP, однако трудоёмкость оказалась почти в 4 раза меньше за счёт высокой производительности команды (146 строк/час против средних 50). Документация также написана с производительностью выше средней.",
+      {
+        x: MX + 0.18, y: CY + CH - 0.4, w: CW - 0.36, h: 0.35,
+        color: C.DARK, fontSize: 14, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
+  }
+
+  // Slide 15: Заключение
   {
     const s = cs(pres, "Выводы по теме");
     conclusionBanner(s, pres,

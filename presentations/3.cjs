@@ -14,7 +14,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Постановка практической задачи", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "• Обеспечить стабильное взаимодействие Frontend, Backend, двух баз PostgreSQL, MinIO и внешней системы 1С.\n\n" +
@@ -22,7 +22,7 @@ async function createP3(outDir) {
       "• Описать интерфейсы (контракты) между всеми подсистемами для достижения слабой связанности, масштабируемости и отказоустойчивости.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -33,7 +33,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Понятие интерфейса-контракта и зачем его проектировать", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Интерфейс — это четко определенная граница взаимодействия (стык) между независимыми частями системы. Он выступает в роли контракта: одна сторона обязуется предоставить данные строго определенного формата, а вторая — принять их.\n\n" +
@@ -43,12 +43,12 @@ async function createP3(outDir) {
       "• Параллельная разработка команд по заранее согласованным мокам.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
 
-  // Slide 3: Подсистемы в нашем проекте (без изменений, это сетка)
+  // Slide 3: Подсистемы в нашем проекте (изменен порядок нумерации и цвета)
   {
     const s = cs(pres, "Подсистемы в проекте client-portal");
     const subs = [
@@ -61,18 +61,23 @@ async function createP3(outDir) {
     ];
     const cw = (CW - 0.2) / 2;
     const rh = (CH - 0.2) / 3;
-    subs.forEach((sub, i) => {
-      const col = i % 2, row = Math.floor(i / 2);
+    // Меняем порядок: сначала левый столбец (индексы 0,2,4), потом правый (1,3,5)
+    const order = [0, 2, 4, 1, 3, 5]; // чтобы нумерация шла сверху вниз
+    order.forEach((idx, i) => {
+      const col = Math.floor(i / 3); // 0 для первых трех, 1 для следующих трех
+      const row = i % 3;
       const x = MX + col * (cw + 0.2);
       const y = CY + row * (rh + 0.1);
-      card(s, pres, x, y, cw, rh, col === 0 ? C.ICE : C.GRNL);
-      s.addText(sub.n, { x: x + 0.15, y: y + 0.08, w: cw - 0.3, h: 0.32,
-        color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria" });
-      s.addText(sub.d, { x: x + 0.15, y: y + 0.42, w: cw - 0.3, h: rh - 0.5,
-        color: C.DARK, fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top" });
+      const fill = i % 2 === 0 ? C.ICE : C.GRNL; // чередование цветов
+      card(s, pres, x, y, cw, rh, fill);
+      s.addText(subs[idx].n, { x: x + 0.15, y: y + 0.08, w: cw - 0.3, h: 0.32,
+        color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria" });
+      s.addText(subs[idx].d, { x: x + 0.15, y: y + 0.42, w: cw - 0.3, h: rh - 0.5,
+        color: C.DARK, fontSize: 14, fontFace: "Times New Roman", align: "left", valign: "top" });
     });
   }
 
+  // Остальные слайды без изменений (со старым кодом, только шрифты увеличены)
   // Slide 4: Спецификация стыковки подсистем (Таблица) — без изменений
   {
     const s = cs(pres, "Стыковка подсистем: спецификация интерфейсов");
@@ -89,7 +94,7 @@ async function createP3(outDir) {
       hdr(interfaces[0]),
       ...interfaces.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top",
+      fontSize: 13, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.5, 2.8, 3.86], rowH: 0.58 });
   }
@@ -109,9 +114,8 @@ async function createP3(outDir) {
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: b.x, y: b.y, w: b.w, h: b.h,
         fill: { color: C.ICE }, line: { color: C.TEAL, pt: 1.2 }, rectRadius: 0.08 });
       s.addText(b.t, { x: b.x, y: b.y, w: b.w, h: b.h,
-        color: C.NAVY, fontSize: 11, bold: true, align: "center", valign: "middle" });
+        color: C.NAVY, fontSize: 13, bold: true, align: "center", valign: "middle" });
     });
-    // Lines
     s.addShape(pres.shapes.LINE, { x: 2.7, y: CY + 0.7, w: 0.8, h: 0, line: { color: C.TEAL, pt: 1.5 } });
     s.addShape(pres.shapes.LINE, { x: 6.0, y: CY + 0.7, w: 0.8, h: 0, line: { color: C.TEAL, pt: 1.5 } });
     s.addShape(pres.shapes.LINE, { x: 4.4, y: CY + 1.2, w: 0, h: 0.8, line: { color: C.TEAL, pt: 1.5 } });
@@ -134,7 +138,7 @@ async function createP3(outDir) {
       hdr(routes[0]),
       ...routes.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 11, fontFace: "Times New Roman", align: "left", valign: "top",
+      fontSize: 13, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [1.3, 2.2, 1.8, 3.86], rowH: 0.7 });
   }
@@ -145,7 +149,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Аутентификация, RBAC и защита API", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Проверка JWT-токенов (Auth Middleware):\n" +
@@ -156,7 +160,7 @@ async function createP3(outDir) {
       "• Любые несанкционированные попытки доступа блокируются ошибками 401 Unauthorized или 403 Forbidden.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -167,7 +171,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Протокол, подключение и события WebSocket", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left", valign: "top"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria", align: "left", valign: "top"
     });
     s.addText(
       "WebSocket обеспечивает постоянный двусторонний обмен данными без оверхеда HTTP-заголовков. При открытии карточки тикета клиент подключается к сокет-серверу и подписывается на комнату `ticket:<ticketId>`, отправляя событие `join`.\n\n" +
@@ -177,7 +181,7 @@ async function createP3(outDir) {
       "• `ticket:status_changed` — push-оповещение клиента о смене статуса обращения менеджером или базой 1С.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -188,7 +192,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Проблема классического подхода и решение через presigned URLs", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left", valign: "top"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria", align: "left", valign: "top"
     });
     s.addText(
       "Обычно файлы загружают на бэкенд API-сервера, а тот перекладывает их в хранилище. Это забивает дисковый кэш, перегружает оперативную память Node.js бинарным буфером данных и блокирует поток событий (Event Loop) при загрузке тяжелых логов или баз 1С.\n\n" +
@@ -198,7 +202,7 @@ async function createP3(outDir) {
       "3. Фронтенд шлет бинарный файл напрямую в корзину MinIO. Бэкенд не нагружается.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -209,7 +213,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Пул соединений и преимущества Drizzle ORM", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Создание TCP-соединения с Postgres на каждый запрос — дорогая операция. Бэкенд инициализирует пул соединений `node-postgres` с лимитом от 10 до 20 активных сессий. Это позволяет мгновенно выполнять SQL-запросы за счет повторного использования открытых сокетов.\n\n" +
@@ -219,7 +223,7 @@ async function createP3(outDir) {
       "• Автоматическое управление миграциями и версионированием таблиц.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -230,7 +234,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Проблема синхронной интеграции и решение Outbox", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Если при нажатии кнопки 'Создать тикет' слать запрос напрямую в 1С по HTTP REST: при сбое связи, перегрузке или плановом перезапуске 1С клиент получит ошибку 500, а тикет будет потерян. Это недопустимо для бизнес-системы.\n\n" +
@@ -240,7 +244,7 @@ async function createP3(outDir) {
       "3. При успехе ставит статус `processed`. При сбое повторяет попытку с задержкой.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -251,7 +255,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Ограничение запросов и контроль источников", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Rate Limiting (Защита от DOS):\n" +
@@ -260,7 +264,7 @@ async function createP3(outDir) {
       "Бэкенд принимает запросы только со строго разрешенного списка доменов (White List), прописанных в переменной `CORS_ALLOWED_ORIGINS`. Попытки отправки AJAX-запросов со сторонних вредоносных фишинговых сайтов блокируются на уровне браузера.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -271,7 +275,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Замена S3-провайдера и масштабирование бэкенда", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left", valign: "top"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria", align: "left", valign: "top"
     });
     s.addText(
       "Замена S3-провайдера за 1 минуту:\n" +
@@ -280,7 +284,7 @@ async function createP3(outDir) {
       "Так как бэкенд спроектирован по принципу 'Stateless' (состояние сессии не хранится в памяти Node.js, а пишется в СУБД Postgres), мы можем запустить 5 параллельных контейнеров Express за балансировщиком Nginx для распределения нагрузки.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -291,7 +295,7 @@ async function createP3(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Сбои сети и конфликты API", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Сбои сетевого подключения (Offline-First WS):\n" +
@@ -300,7 +304,7 @@ async function createP3(outDir) {
       "Если клиент и менеджер редактируют одно обращение через REST-интерфейс одновременно, бэкенд сверяет поле 'version'. Первая транзакция успешно фиксируется, а второй возвращается код ошибки 409 Conflict с предложением обновить форму.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }

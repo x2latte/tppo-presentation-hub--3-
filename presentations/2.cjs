@@ -14,7 +14,7 @@ async function createP2(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Постановка практической задачи", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "• Команда должна длительно поддерживать и масштабировать клиентский портал (интеграция с 1С, рост числа клиентов).\n\n" +
@@ -22,7 +22,7 @@ async function createP2(outDir) {
       "• Определить и оценить внутренние атрибуты качества ПО (модульность, тестируемость, поддерживаемость, безопасность), важные именно для разработчиков и архитекторов проекта TPPO.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -33,7 +33,7 @@ async function createP2(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Атрибуты качества: пользователь vs разработчик", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Что видит конечный пользователь?\n" +
@@ -46,12 +46,12 @@ async function createP2(outDir) {
       "• Поддерживаемость и расширяемость кодовой базы.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
 
-  // Slide 3: Ключевые атрибуты качества (сетка из 5 карточек, не меняем)
+  // Slide 3: Ключевые атрибуты качества (сетка из 5 карточек, теперь с увеличенным шрифтом)
   {
     const s = cs(pres, "Ключевые атрибуты качества в проекте");
     const attrs = [
@@ -69,9 +69,9 @@ async function createP2(outDir) {
       const y = CY + row * (rh + 0.1);
       card(s, pres, x, y, cw, rh, i % 2 === 0 ? C.ICE : C.GRNL);
       s.addText(a.n, { x: x + 0.15, y: y + 0.08, w: cw - 0.3, h: 0.32,
-        color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria" });
+        color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria" });
       s.addText(a.d, { x: x + 0.15, y: y + 0.42, w: cw - 0.3, h: rh - 0.5,
-        color: C.DARK, fontSize: 12, fontFace: "Times New Roman" });
+        color: C.DARK, fontSize: 14, fontFace: "Times New Roman", align: "left", valign: "top" });
     });
   }
 
@@ -90,19 +90,19 @@ async function createP2(outDir) {
       hdr(metrics[0]),
       ...metrics.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 12, fontFace: "Times New Roman",
+      fontSize: 13, fontFace: "Times New Roman",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.0, 3.2, 2.1, 1.86], rowH: 0.65 });
   }
 
-  // Slide 4: Модульность: структура директорий (card + codeBox, не две колонки)
+  // Slide 4: Модульность: структура директорий (увеличен шрифт, выравнивание)
   {
     const s = cs(pres, "Модульность: структура директорий бэкенда");
     card(s, pres, MX, CY, 3.8, CH, C.ICE);
     s.addText("Преимущества структуры", { x: MX + 0.15, y: CY + 0.12, w: 3.5, h: 0.35,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria" });
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria" });
     s.addText("• Разделение ответственности слоев.\n• Эндпоинты (routes) не содержат сырых запросов к SQL.\n• Вся бизнес-логика вынесена в сервисы (services).\n• Доступ к СУБД изолирован в слое миграций и репозиториев (db).", {
-      x: MX + 0.15, y: CY + 0.55, w: 3.5, h: CH - 0.8, color: C.DARK, fontSize: 11, fontFace: "Times New Roman" });
+      x: MX + 0.15, y: CY + 0.55, w: 3.5, h: CH - 0.8, color: C.DARK, fontSize: 14, fontFace: "Times New Roman", align: "left", valign: "top" });
 
     codeBox(s, pres, MX + 4.1, CY, 5.06, CH,
       "backend/src/\n  ├── routes/         # REST API эндпоинты (контроллеры)\n  ├── services/       # Бизнес-логика, воркеры, синк\n  ├── middleware/     # Аутентификация, Zod-валидация\n  ├── config/         # Подключения (Postgres, MinIO, 1C)\n  ├── db/             # Схемы Drizzle ORM, миграции\n  ├── types/          # Общие типы данных TypeScript\n  └── index.ts        # Главный файл запуска сервера", 10.5);
@@ -114,7 +114,7 @@ async function createP2(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Нарушение связанности (Плохой подход) vs Разделение слоев (Хороший подход)", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Нарушение связанности (Плохой подход):\n" +
@@ -131,7 +131,7 @@ async function createP2(outDir) {
       "• Любой слой можно легко заменить или протестировать.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -142,7 +142,7 @@ async function createP2(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Изоляция базы данных и имитация внешних систем", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Изоляция базы данных:\n" +
@@ -152,32 +152,32 @@ async function createP2(outDir) {
       "• Пакет AWS SDK S3 настраивается на локальную заглушку, которая не загружает файлы в облако, а симулирует сохранение в оперативной памяти.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
 
-  // Slide 7: Поддерживаемость: строгая типизация TypeScript (card + codeBox, не меняем)
+  // Slide 7: Поддерживаемость: строгая типизация TypeScript (увеличен шрифт)
   {
     const s = cs(pres, "Поддерживаемость: типизация TypeScript");
     card(s, pres, MX, CY, 3.8, CH, C.ICE);
     s.addText("Преимущества типизации", { x: MX + 0.15, y: CY + 0.12, w: 3.5, h: 0.35,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria" });
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria" });
     s.addText("• Обнаружение 90% глупых ошибок опечаток на этапе компиляции.\n• Удобное автодополнение (IntelliSense) в редакторах.\n• Безопасный рефакторинг: при изменении структуры полей компилятор сразу подсветит все ошибочные места.", {
-      x: MX + 0.15, y: CY + 0.55, w: 3.5, h: CH - 0.8, color: C.DARK, fontSize: 11, fontFace: "Times New Roman", align: "left", valign: "top" });
+      x: MX + 0.15, y: CY + 0.55, w: 3.5, h: CH - 0.8, color: C.DARK, fontSize: 14, fontFace: "Times New Roman", align: "left", valign: "top" });
 
     codeBox(s, pres, MX + 4.1, CY, 5.06, CH,
       "export interface ITicket {\n  id: string;\n  title: string;\n  description: string;\n  status: 'new' | 'active' | 'closed';\n  client_id: string;\n  version: number;\n  created_at: Date;\n}\n\nexport interface IMessage {\n  id: string;\n  ticket_id: string;\n  sender_id: string;\n  text: string;\n  sync_status: 'pending' | 'synced';\n}", 10);
   }
 
-  // Slide 8: Поддерживаемость: Zod-валидация схем (card + codeBox, не меняем)
+  // Slide 8: Поддерживаемость: Zod-валидация схем (увеличен шрифт)
   {
     const s = cs(pres, "Схемы валидации данных (Zod)");
     card(s, pres, MX, CY, 3.8, CH, C.ICE);
     s.addText("Безопасный парсинг данных", { x: MX + 0.15, y: CY + 0.12, w: 3.5, h: 0.35,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria" });
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria" });
     s.addText("• Zod проверяет входящие HTTP-запросы (body, query, params) до выполнения логики.\n• Автоматически отсекает лишние поля (защита от mass assignment).\n• Преобразует строковые типы в числа/даты.\n• Из схем Zod автоматически выводятся типы TS (`z.infer<T>`).", {
-      x: MX + 0.15, y: CY + 0.55, w: 3.5, h: CH - 0.8, color: C.DARK, fontSize: 11, fontFace: "Times New Roman", align: "left", valign: "top" });
+      x: MX + 0.15, y: CY + 0.55, w: 3.5, h: CH - 0.8, color: C.DARK, fontSize: 14, fontFace: "Times New Roman", align: "left", valign: "top" });
 
     codeBox(s, pres, MX + 4.1, CY, 5.06, CH,
       "import { z } from 'zod';\n\nexport const CreateTicketSchema = z.object({\n  title: z.string().min(3).max(100),\n  description: z.string().min(10),\n  category: z.enum(['1C_ERP', '1C_Accounting', 'Other']),\n  attachments: z.array(z.string().uuid()).optional(),\n});\n\ntype CreateTicketDto = z.infer<typeof CreateTicketSchema>;", 10);
@@ -189,7 +189,7 @@ async function createP2(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Паттерн Стратегия и слабая связанность хранилищ", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria"
     });
     s.addText(
       "Паттерн Стратегия (Strategy):\n" +
@@ -198,7 +198,7 @@ async function createP2(outDir) {
       "Интеграция с S3 скрыта за абстракцией `IFileStorage`. В процессе разработки мы используем локальный MinIO, но при развертывании в облаке можем переключиться на AWS S3 или Yandex Object Storage простым изменением переменной среды в `.env`.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -209,7 +209,7 @@ async function createP2(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Двухфакторный вход и Bearer JWT", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left", valign: "top"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria", align: "left", valign: "top"
     });
     s.addText(
       "Двухфакторный вход по SMS:\n" +
@@ -220,7 +220,7 @@ async function createP2(outDir) {
       "• Это исключает кражу токенов через XSS-скрипты.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -231,7 +231,7 @@ async function createP2(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Защита данных и валидация трафика", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left", valign: "top"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria", align: "left", valign: "top"
     });
     s.addText(
       "Защита данных и S3:\n" +
@@ -242,7 +242,7 @@ async function createP2(outDir) {
       "• Ограничение частоты запросов (Rate Limiter) спасает авторизацию и отправку SMS от перебора (Brute Force).",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -253,7 +253,7 @@ async function createP2(outDir) {
     card(s, pres, MX, CY, CW, CH, C.ICE);
     s.addText("Зачем нужна блокировка и механизм версии", {
       x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
-      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left", valign: "top"
+      color: C.NAVY, fontSize: 14, bold: true, fontFace: "Cambria", align: "left", valign: "top"
     });
     s.addText(
       "Зачем нужна блокировка?\n" +
@@ -264,7 +264,7 @@ async function createP2(outDir) {
       "• Если версия в базе изменилась, запрос вернет 0 измененных строк. Система выдаст конфликт 409.",
       {
         x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
-        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+        color: C.DARK, fontSize: 18, fontFace: "Times New Roman", align: "left", valign: "top"
       }
     );
   }
@@ -284,7 +284,7 @@ async function createP2(outDir) {
       hdr(tools[0]),
       ...tools.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 11, fontFace: "Times New Roman", align: "left", valign: "top",
+      fontSize: 13, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.0, 2.0, 5.16], rowH: 0.65 });
   }
