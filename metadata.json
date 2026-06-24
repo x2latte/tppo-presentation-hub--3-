@@ -1,0 +1,6 @@
+{
+  "name": "TPPO Presentation Hub",
+  "description": "Презентационный Хаб по дисциплине ТППО для личного кабинета клиента ООО «Неосистемы Северо-Запад»",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
