@@ -8,56 +8,74 @@ async function createP1(outDir) {
   // Slide 1: Cover
   addCover(pres, "Тема 1", "Диаграмма прецедентов\nUse Case Diagram");
 
-  
-  // Slide 2: Что такое диаграмма прецедентов?
+  // === Новый слайд: Постановка задачи ===
+  {
+    const s = cs(pres, "Постановка задачи моделирования");
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Постановка практической задачи", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "• Замена устаревшего «Журнала обращений» в 1С современным клиентским порталом.\n" +
+      "• Клиенты часто ошибаются при выборе услуги, сложно отслеживать статусы и общаться с исполнителями.\n\n" +
+      "Конкретная задача моделирования:\n" +
+      "• Построить Диаграмму прецедентов UML, которая чётко определит границы системы, роли участников и основные сценарии взаимодействия.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top" 
+      }
+    );
+  }
+
+  // Slide 2: Что такое диаграмма прецедентов? (было две колонки -> одна)
   {
     const s = cs(pres, "Назначение диаграммы прецедентов");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Сущность UML Use Case", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "Описывает функциональность системы с точки зрения акторов.", options: { bullet: true, breakLine: true } },
-      { text: "Позволяет зафиксировать границы проектируемой системы.", options: { bullet: true, breakLine: true } },
-      { text: "Является основой для приёмо-сдаточных испытаний и тестов.", options: { bullet: true } },
-    ], { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Преимущества подхода", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "Абстрагирование от конкретной программной реализации.", options: { bullet: true, breakLine: true } },
-      { text: "Простое и понятное общение с бизнес-заказчиками компании.", options: { bullet: true, breakLine: true } },
-      { text: "Прямая трассировка требований в API-эндпоинты и СУБД.", options: { bullet: true } },
-    ], { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Сущность UML Use Case и преимущества подхода", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Описывает функциональность системы с точки зрения акторов.\n" +
+      "Позволяет зафиксировать границы проектируемой системы.\n" +
+      "Является основой для приёмо-сдаточных испытаний и тестов.\n\n" +
+      "Преимущества подхода:\n" +
+      "• Абстрагирование от конкретной программной реализации.\n" +
+      "• Простое и понятное общение с бизнес-заказчиками компании.\n" +
+      "• Прямая трассировка требований в API-эндпоинты и СУБД.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 3: Контекст проекта «Неосистемы Северо-Запад»
+  // Slide 3: Контекст проекта «Неосистемы Северо-Запад» (было две колонки -> одна)
   {
     const s = cs(pres, "Контекст проекта: Личный кабинет клиента");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Бизнес-цели портала", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "Разгрузка линии технической поддержки клиентов.", options: { bullet: true, breakLine: true } },
-      { text: "Прозрачный контроль выполнения заявок по 1С.", options: { bullet: true, breakLine: true } },
-      { text: "Оперативное согласование коммерческих предложений.", options: { bullet: true } },
-    ], { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Интеграционные стыки", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "Локальная БД PostgreSQL для хранения сессий и сообщений.", options: { bullet: true, breakLine: true } },
-      { text: "Внешний симулятор 1С для синхронизации справочников.", options: { bullet: true, breakLine: true } },
-      { text: "Объектное S3-хранилище MinIO для тяжелых файлов.", options: { bullet: true } },
-    ], { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Бизнес-цели портала и интеграционные стыки", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Бизнес-цели портала:\n" +
+      "• Разгрузка линии технической поддержки клиентов.\n" +
+      "• Прозрачный контроль выполнения заявок по 1С.\n" +
+      "• Оперативное согласование коммерческих предложений.\n\n" +
+      "Интеграционные стыки:\n" +
+      "• Локальная БД PostgreSQL для хранения сессий и сообщений.\n" +
+      "• Внешний симулятор 1С для синхронизации справочников.\n" +
+      "• Объектное S3-хранилище MinIO для тяжелых файлов.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 4: Акторы (Actors) системы
+  // Slide 4: Акторы (Actors) системы (сетка из 4 карточек, не меняем)
   {
     const s = cs(pres, "Действующие лица (Actors) системы");
     const cw = (CW - 0.2) / 2;
@@ -68,33 +86,33 @@ async function createP1(outDir) {
     // Card 1
     card(s, pres, x1, y1, cw, ch, C.ICE);
     s.addText("Представитель клиента (Клиент)", { x: x1 + 0.15, y: y1 + 0.1, w: cw - 0.3, h: 0.3,
-      color: C.NAVY, fontSize: 11.5, bold: true, fontFace: "Cambria" });
+      color: C.NAVY, fontSize: 16, bold: true, fontFace: "Cambria" });
     s.addText("Внешний пользователь. Инициирует запросы на техподдержку 1С, прикрепляет скриншоты ошибок, общается в реальном времени в чате и заказывает обратные звонки.", { x: x1 + 0.15, y: y1 + 0.45, w: cw - 0.3, h: ch - 0.55,
-      color: C.DARK, fontSize: 10, fontFace: "Calibri" });
+      color: C.DARK, fontSize: 10, fontFace: "Times New Roman" });
 
     // Card 2
     card(s, pres, x2, y1, cw, ch, C.GRNL);
     s.addText("Сотрудник компании (Менеджер/Исполнитель)", { x: x2 + 0.15, y: y1 + 0.1, w: cw - 0.3, h: 0.3,
-      color: C.NAVY, fontSize: 11.5, bold: true, fontFace: "Cambria" });
+      color: C.NAVY, fontSize: 16, bold: true, fontFace: "Cambria" });
     s.addText("Внутренний пользователь. Принимает обращения в работу, меняет статусы, формирует коммерческие оценки трудоемкости в часах и общается с клиентом.", { x: x2 + 0.15, y: y1 + 0.45, w: cw - 0.3, h: ch - 0.55,
-      color: C.DARK, fontSize: 10, fontFace: "Calibri" });
+      color: C.DARK, fontSize: 10, fontFace: "Times New Roman" });
 
     // Card 3
     card(s, pres, x1, y2, cw, ch, C.PURPL);
     s.addText("Администратор портала (Administrator)", { x: x1 + 0.15, y: y2 + 0.1, w: cw - 0.3, h: 0.3,
-      color: C.NAVY, fontSize: 11.5, bold: true, fontFace: "Cambria" });
+      color: C.NAVY, fontSize: 16, bold: true, fontFace: "Cambria" });
     s.addText("Администрирует учетные записи и роли сотрудников и клиентов ООО «Неосистемы», настраивает права доступа, мониторит интеграционные логи и очереди отправки.", { x: x1 + 0.15, y: y2 + 0.45, w: cw - 0.3, h: ch - 0.55,
-      color: C.DARK, fontSize: 10, fontFace: "Calibri" });
+      color: C.DARK, fontSize: 10, fontFace: "Times New Roman" });
 
     // Card 4
     card(s, pres, x2, y2, cw, ch, C.AMBL);
     s.addText("Внешняя система (1С:Предприятие)", { x: x2 + 0.15, y: y2 + 0.1, w: cw - 0.3, h: 0.3,
-      color: C.NAVY, fontSize: 11.5, bold: true, fontFace: "Cambria" });
+      color: C.NAVY, fontSize: 16, bold: true, fontFace: "Cambria" });
     s.addText("Актор-система. Выступает источником справочников договоров и конфигураций. Принимает синхронизированные из портала обращения через интеграционный слой.", { x: x2 + 0.15, y: y2 + 0.45, w: cw - 0.3, h: ch - 0.55,
-      color: C.DARK, fontSize: 10, fontFace: "Calibri" });
+      color: C.DARK, fontSize: 10, fontFace: "Times New Roman" });
   }
 
-  // Slide 5: Основные прецеденты (Use Cases)
+  // Slide 5: Основные прецеденты (Use Cases) - таблица, не меняем
   {
     const s = cs(pres, "Состав прецедентов (Use Cases)");
     const ucs = [
@@ -114,12 +132,12 @@ async function createP1(outDir) {
       hdr(ucs[0]),
       ...ucs.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 11, fontFace: "Calibri",
+      fontSize: 11, fontFace: "Times New Roman",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [1.8, 2.8, 4.56], rowH: 0.38 });
   }
 
-  // Slide 6: Диаграмма прецедентов UML
+  // Slide 6: Диаграмма прецедентов UML (не меняем, это графика)
   {
     const s = cs(pres, "Диаграмма прецедентов UML");
     // Border
@@ -172,7 +190,7 @@ async function createP1(outDir) {
     s.addShape(pres.shapes.LINE, { x: 0.775, y: CY + 1.75, w: 0.15, h: -0.05, line: { color: C.TEAL, pt: 1.5 } }); // Right Arm
     s.addShape(pres.shapes.LINE, { x: 0.775, y: CY + 2.0, w: -0.15, h: 0.25, line: { color: C.TEAL, pt: 1.5 } }); // Left Leg
     s.addShape(pres.shapes.LINE, { x: 0.775, y: CY + 2.0, w: 0.15, h: 0.25, line: { color: C.TEAL, pt: 1.5 } }); // Right Leg
-    s.addText("Клиент", { x: 0.2, y: CY + 2.3, w: 1.15, h: 0.3, color: C.TEAL, fontSize: 10.5, bold: true, align: "center" });
+    s.addText("Клиент", { x: 0.2, y: CY + 2.3, w: 1.15, h: 0.3, color: C.TEAL, fontSize: 12, bold: true, align: "center" });
     // Line to the system boundary
     s.addShape(pres.shapes.LINE, { x: 1.1, y: CY + 1.8, w: 0.7, h: 0, line: { color: C.TEAL, pt: 1.5 } });
 
@@ -183,12 +201,12 @@ async function createP1(outDir) {
     s.addShape(pres.shapes.LINE, { x: 9.075, y: CY + 1.75, w: 0.15, h: -0.05, line: { color: C.NAVY, pt: 1.5 } }); // Right Arm
     s.addShape(pres.shapes.LINE, { x: 9.075, y: CY + 2.0, w: -0.15, h: 0.25, line: { color: C.NAVY, pt: 1.5 } }); // Left Leg
     s.addShape(pres.shapes.LINE, { x: 9.075, y: CY + 2.0, w: 0.15, h: 0.25, line: { color: C.NAVY, pt: 1.5 } }); // Right Leg
-    s.addText("Сотрудник", { x: 8.5, y: CY + 2.3, w: 1.15, h: 0.3, color: C.NAVY, fontSize: 10.5, bold: true, align: "center" });
+    s.addText("Сотрудник", { x: 8.5, y: CY + 2.3, w: 1.15, h: 0.3, color: C.NAVY, fontSize: 12, bold: true, align: "center" });
     // Line to the system boundary
     s.addShape(pres.shapes.LINE, { x: 8.4, y: CY + 1.8, w: 0.5, h: 0, line: { color: C.NAVY, pt: 1.5 } });
   }
 
-  // Slide 7: Спецификация UC-01 (Создание обращения)
+  // Slide 7: Спецификация UC-01 (таблица, не меняем)
   {
     const s = cs(pres, "UC-01: Создание обращения клиента");
     s.addTable([
@@ -199,12 +217,12 @@ async function createP1(outDir) {
       dr(["Альтернативы", "Сбой валидации: поля подсвечиваются красным, отправка формы блокируется."], false),
       dr(["Постусловия", "Создана запись в таблице tickets со статусом 'Новое'; создано событие в outbox."], true),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 10.5, fontFace: "Calibri",
+      fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top", 
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.0, 7.16], rowH: 0.72 });
   }
 
-  // Slide 8: Спецификация UC-02 (Чат в реальном времени)
+  // Slide 8: Спецификация UC-02 (таблица, не меняем)
   {
     const s = cs(pres, "UC-02: Чат в реальном времени");
     s.addTable([
@@ -215,12 +233,12 @@ async function createP1(outDir) {
       dr(["Сбой сети", "WS разорван: сообщение сохраняется в LocalStorage и отправляется при реконнекте."], false),
       dr(["Постусловия", "Сообщение записано в БД с sync_status='synced', выведен статус доставки."], true),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 10.5, fontFace: "Calibri",
+      fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.0, 7.16], rowH: 0.72 });
   }
 
-  // Slide 9: Спецификация UC-03 (Прямая загрузка в S3)
+  // Slide 9: Спецификация UC-03 (таблица, не меняем)
   {
     const s = cs(pres, "UC-03: Загрузка файлов в S3 MinIO");
     s.addTable([
@@ -231,12 +249,12 @@ async function createP1(outDir) {
       dr(["Альтернативы", "Превышен размер: выдается предупреждение, загрузка отклоняется."], false),
       dr(["Постусловия", "Файл успешно сохранен в S3 bucket, ссылка добавлена в таблицу attachments."], true),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 10.5, fontFace: "Calibri",
+      fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.0, 7.16], rowH: 0.72 });
   }
 
-  // Slide 10: Спецификация UC-04 (Синхронизация с 1С)
+  // Slide 10: Спецификация UC-04 (таблица, не меняем)
   {
     const s = cs(pres, "UC-04: Синхронизация обращений с 1С");
     s.addTable([
@@ -247,12 +265,12 @@ async function createP1(outDir) {
       dr(["Ошибки связи", "Сервер 1С недоступен: попытка откладывается, включается экспоненциальный таймаут."], false),
       dr(["Постусловия", "Локальные обращения клиента синхронизированы с учетной базой компании."], true),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 10.5, fontFace: "Calibri",
+      fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.0, 7.16], rowH: 0.72 });
   }
 
-  // Slide 11: Трассировка прецедентов на API-маршруты
+  // Slide 11: Трассировка прецедентов на API-маршруты (таблица, не меняем)
   {
     const s = cs(pres, "Трассировка прецедентов на API-маршруты");
     const routes = [
@@ -267,33 +285,33 @@ async function createP1(outDir) {
       hdr(routes[0]),
       ...routes.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 10.5, fontFace: "Calibri",
+      fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.5, 1.2, 2.8, 2.66], rowH: 0.65 });
   }
 
-  // Slide 12: Покрытие прецедентов автотестами
+  // Slide 12: Покрытие прецедентов автотестами (было две колонки -> одна)
   {
     const s = cs(pres, "Связь с приемочным тестированием (E2E)");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Приёмочные сценарии Playwright", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "Ключевые сценарии Use Cases покрыты приемочными сквозными тестами.", options: { bullet: true, breakLine: true } },
-      { text: "Тест эмулирует клики пользователя, ввод текста и проверку UI-реакций.", options: { bullet: true, breakLine: true } },
-      { text: "Проверяется сквозная цепочка: от создания на фронте до записи в СУБД.", options: { bullet: true } },
-    ], { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Интеграционные сквозные проверки", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "Синхронизация Outbox с базой 1С тестируется через моки API.", options: { bullet: true, breakLine: true } },
-      { text: "Проверка обработки сетевых разрывов при отправке чата WS.", options: { bullet: true, breakLine: true } },
-      { text: "Верификация корректности загрузки файлов на мок-сервер S3 (MinIO).", options: { bullet: true } },
-    ], { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Приёмочные сценарии Playwright и интеграционные проверки", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left"
+    });
+    s.addText(
+      "Приёмочные сценарии Playwright:\n" +
+      "• Ключевые сценарии Use Cases покрыты приемочными сквозными тестами.\n" +
+      "• Тест эмулирует клики пользователя, ввод текста и проверку UI-реакций.\n" +
+      "• Проверяется сквозная цепочка: от создания на фронте до записи в СУБД.\n\n" +
+      "Интеграционные сквозные проверки:\n" +
+      "• Синхронизация Outbox с базой 1С тестируется через моки API.\n" +
+      "• Проверка обработки сетевых разрывов при отправке чата WS.\n" +
+      "• Верификация корректности загрузки файлов на мок-сервер S3 (MinIO).",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
   // Slide 14: Заключение

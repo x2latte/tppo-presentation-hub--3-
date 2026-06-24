@@ -8,47 +8,70 @@ async function createP4(outDir) {
   // Slide 1: Cover
   addCover(pres, "Тема 4", "Языки моделирования\nModeling Languages");
 
-  // Slide 2: Что такое язык моделирования?
+  // === Новый слайд: Постановка задачи ===
+  {
+    const s = cs(pres, "Постановка задачи моделирования");
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Постановка практической задачи", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "• Необходимо формализовать требования и архитектуру до начала активной разработки.\n\n" +
+      "Конкретная задача моделирования:\n" +
+      "• Выбрать и применить подходящие языки и нотации моделирования (прежде всего UML) для создания трассируемых моделей от требований до кода в проекте TPPO.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
+  }
+
+  // Slide 2: Что такое язык моделирования? (было две колонки -> одна)
   {
     const s = cs(pres, "Что такое язык моделирования?");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Сущность моделирования", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Язык моделирования — это искусственная графическая или текстовая система обозначений, предназначенная для описания структуры, поведения и процессов сложных программных и организационных систем.\n\nОсновным промышленным стандартом в ИТ является UML (Unified Modeling Language).", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Зачем абстрагировать систему?", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "Абстрагирование от низкоуровневого JS/TS кода.", options: { bullet: true, breakLine: true } },
-      { text: "Создание единой ментальной карты (карта архитектуры) проекта.", options: { bullet: true, breakLine: true } },
-      { text: "Ускорение адаптации новых разработчиков в команду.", options: { bullet: true } },
-    ], { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Сущность моделирования и цели абстрагирования", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Язык моделирования — это искусственная графическая или текстовая система обозначений, предназначенная для описания структуры, поведения и процессов сложных программных и организационных систем.\n\n" +
+      "Основным промышленным стандартом в ИТ является UML (Unified Modeling Language).\n\n" +
+      "Зачем абстрагировать систему?\n" +
+      "• Абстрагирование от низкоуровневого JS/TS кода.\n" +
+      "• Создание единой ментальной карты (карта архитектуры) проекта.\n" +
+      "• Ускорение адаптации новых разработчиков в команду.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 3: Использование UML в ТППО
+  // Slide 3: Использование UML в ТППО (было две колонки -> одна)
   {
     const s = cs(pres, "Моделирование в курсе ТППО");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Цели применения в проекте", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("В процессе проектирования «Личного кабинета» для клиентов компании ООО «Неосистемы Северо-Запад» моделирование использовалось для формализации требований перед кодингом. Это позволило избежать архитектурных тупиков при сопряжении баз данных (PostgreSQL и 1С) и файлов MinIO.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Что дает проектирование до кода?", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "95% ошибок проектирования выявляются 'на бумаге'.", options: { bullet: true, breakLine: true } },
-      { text: "Стоимость исправления модели в 100 раз дешевле переписывания кода.", options: { bullet: true, breakLine: true } },
-      { text: "Четко зафиксированные JSON-контракты интеграции.", options: { bullet: true } },
-    ], { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Цели применения в проекте и преимущества", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Цели применения в проекте:\n" +
+      "В процессе проектирования «Личного кабинета» для клиентов компании ООО «Неосистемы Северо-Запад» моделирование использовалось для формализации требований перед кодингом. Это позволило избежать архитектурных тупиков при сопряжении баз данных (PostgreSQL и 1С) и файлов MinIO.\n\n" +
+      "Что дает проектирование до кода?\n" +
+      "• 95% ошибок проектирования выявляются 'на бумаге'.\n" +
+      "• Стоимость исправления модели в 100 раз дешевле переписывания кода.\n" +
+      "• Четко зафиксированные JSON-контракты интеграции.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 4: Таблица используемых диаграмм
+  // Slide 4: Таблица используемых диаграмм (не меняем)
   {
     const s = cs(pres, "Матрица UML диаграмм в проекте");
     const matrix = [
@@ -62,55 +85,64 @@ async function createP4(outDir) {
       hdr(matrix[0]),
       ...matrix.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 10.5, fontFace: "Calibri",
+      fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.5, 2.5, 4.16], rowH: 0.7 });
   }
 
-  // Slide 5: UML Use Case Diagram
+  // Slide 5: UML Use Case Diagram (было две колонки -> одна)
   {
     const s = cs(pres, "UML Use Case Diagram: Моделирование требований");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Характеристики Use Case моделей", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Диаграмма прецедентов фиксирует требования со стороны внешнего мира. Она определяет, КТО (акторы) и ЧТО (прецеденты) делает в системе.\n\nНаши акторы:\n• Представитель клиента (Клиент)\n• Специалист поддержки (Менеджер)\n• Утверждающий (client_approver)\n• Диспетчер (dispatcher)\n• Администратор (admin)", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Основные сценарии в фокусе", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "Двухэтапная аутентификация (пароль + SMS OTP).", options: { bullet: true, breakLine: true } },
-      { text: "Создание тикета техподдержки с файлами ошибок.", options: { bullet: true, breakLine: true } },
-      { text: "Мгновенное общение через веб-чат WebSockets.", options: { bullet: true, breakLine: true } },
-      { text: "Синхронизация карточек обращений с репликой 1С.", options: { bullet: true } },
-    ], { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Характеристики Use Case моделей и основные сценарии", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Диаграмма прецедентов фиксирует требования со стороны внешнего мира. Она определяет, КТО (акторы) и ЧТО (прецеденты) делает в системе.\n\n" +
+      "Наши акторы:\n" +
+      "• Представитель клиента (Клиент)\n" +
+      "• Специалист поддержки (Менеджер)\n" +
+      "• Утверждающий (client_approver)\n" +
+      "• Диспетчер (dispatcher)\n" +
+      "• Администратор (admin)\n\n" +
+      "Основные сценарии в фокусе:\n" +
+      "• Двухэтапная аутентификация (пароль + SMS OTP).\n" +
+      "• Создание тикета техподдержки с файлами ошибок.\n" +
+      "• Мгновенное общение через веб-чат WebSockets.\n" +
+      "• Синхронизация карточек обращений с репликой 1С.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 6: UML Component Diagram
+  // Slide 6: UML Component Diagram (было две колонки -> одна)
   {
     const s = cs(pres, "UML Component Diagram: Модульная архитектура");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Назначение диаграммы компонентов", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Диаграмма показывает разделение кодовой базы на физические сборочные единицы (компоненты) и их интерфейсные стыки.\n\nПредоставляемые интерфейсы (кружки 'lollipop') скрывают детали СУБД, а требуемые интерфейсы (полукружки) заставляют фронтенд соблюдать REST-контракты.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Компоненты client-portal", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "React Frontend — браузерный SPA-бандл.", options: { bullet: true, breakLine: true } },
-      { text: "Node.js Express Backend — API сервер.", options: { bullet: true, breakLine: true } },
-      { text: "PostgreSQL Database — внутреннее хранилище.", options: { bullet: true, breakLine: true } },
-      { text: "MinIO S3 Storage — файловый архив.", options: { bullet: true, breakLine: true } },
-      { text: "1C Simulator — имитация ERP учетной системы.", options: { bullet: true } },
-    ], { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Назначение диаграммы компонентов и список компонентов", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Диаграмма показывает разделение кодовой базы на физические сборочные единицы (компоненты) и их интерфейсные стыки.\n\n" +
+      "Предоставляемые интерфейсы (кружки 'lollipop') скрывают детали СУБД, а требуемые интерфейсы (полукружки) заставляют фронтенд соблюдать REST-контракты.\n\n" +
+      "Компоненты client-portal:\n" +
+      "• React Frontend — браузерный SPA-бандл.\n" +
+      "• Node.js Express Backend — API сервер.\n" +
+      "• PostgreSQL Database — внутреннее хранилище.\n" +
+      "• MinIO S3 Storage — файловый архив.\n" +
+      "• 1C Simulator — имитация ERP учетной системы.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 7: UML Class Diagram
+  // Slide 7: UML Class Diagram (графика, не меняем)
   {
     const s = cs(pres, "UML Class Diagram (с отображением структуры данных)");
     // visual classes using simple rectangle cards
@@ -150,68 +182,88 @@ async function createP4(outDir) {
     s.addText("имеет", { x: 8.25, y: CY + 1.25, w: 0.3, h: 0.2, color: C.TEAL, fontSize: 7, bold: true, align: "center" });
   }
 
-  // Slide 8: UML Sequence Diagram
+  // Slide 8: UML Sequence Diagram (было две колонки -> одна)
   {
     const s = cs(pres, "UML Sequence Diagram: Динамика синхронизации");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Поток событий (Sequence)", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Диаграмма последовательности показывает жизненный цикл во времени:\n\n1. Клиент нажимает кнопку 'Отправить'.\n2. Фронтенд отправляет POST-запрос на Бэкенд.\n3. Бэкенд пишет тикет в PostgreSQL.\n4. Бэкенд пишет транзакцию в Outbox.\n5. Фоновый воркер асинхронно передает данные в 1С.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Почему важен этот сценарий?", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("• Визуализирует временные задержки и асинхронные границы.\n• Четко разделяет синхронный клиентский шаг и асинхронный фоновый шаг синхронизации с 1С.\n• Позволяет легко выявить потенциальные места зависаний (timeouts) и сетевых сбоев.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Поток событий (Sequence) и его важность", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Диаграмма последовательности показывает жизненный цикл во времени:\n\n" +
+      "1. Клиент нажимает кнопку 'Отправить'.\n" +
+      "2. Фронтенд отправляет POST-запрос на Бэкенд.\n" +
+      "3. Бэкенд пишет тикет в PostgreSQL.\n" +
+      "4. Бэкенд пишет транзакцию в Outbox.\n" +
+      "5. Фоновый воркер асинхронно передает данные в 1С.\n\n" +
+      "Почему важен этот сценарий?\n" +
+      "• Визуализирует временные задержки и асинхронные границы.\n" +
+      "• Четко разделяет синхронный клиентский шаг и асинхронный фоновый шаг синхронизации с 1С.\n" +
+      "• Позволяет легко выявить потенциальные места зависаний (timeouts) и сетевых сбоев.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 9: ERD (Entity-Relationship Diagram)
+  // Slide 9: ERD (Entity-Relationship Diagram) (было две колонки -> одна)
   {
     const s = cs(pres, "ERD: Реляционная схема базы данных");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("ER-моделирование данных", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("В отличие от абстрактной диаграммы классов UML, ERD описывает физическую структуру таблиц СУБД PostgreSQL.\n\nЗдесь четко фиксируются первичные ключи (Primary Keys, UUID), внешние ключи (Foreign Keys) и индексы для оптимизации запросов поиска.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Ключевые сущности (Таблицы БД)", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "users — данные пользователей (телефон, имя, роль).", options: { bullet: true, breakLine: true } },
-      { text: "tickets — обращения клиентов (id, статус, version).", options: { bullet: true, breakLine: true } },
-      { text: "messages — сообщения чата (id, текст, timestamp).", options: { bullet: true, breakLine: true } },
-      { text: "attachments — файлы из S3 (id, mime, path).", options: { bullet: true, breakLine: true } },
-      { text: "outbox — транзакционная очередь отправки в 1С.", options: { bullet: true } },
-    ], { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("ER-моделирование данных и ключевые сущности", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "В отличие от абстрактной диаграммы классов UML, ERD описывает физическую структуру таблиц СУБД PostgreSQL.\n\n" +
+      "Здесь четко фиксируются первичные ключи (Primary Keys, UUID), внешние ключи (Foreign Keys) и индексы для оптимизации запросов поиска.\n\n" +
+      "Ключевые сущности (Таблицы БД):\n" +
+      "• users — данные пользователей (телефон, имя, роль).\n" +
+      "• tickets — обращения клиентов (id, статус, version).\n" +
+      "• messages — сообщения чата (id, текст, timestamp).\n" +
+      "• attachments — файлы из S3 (id, mime, path).\n" +
+      "• outbox — транзакционная очередь отправки в 1С.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 10: BPMN (Business Process Model and Notation)
+  // Slide 10: BPMN (Business Process Model and Notation) (было две колонки -> одна)
   {
     const s = cs(pres, "BPMN: Жизненный цикл обращения клиента");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Зачем использовать BPMN?", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("UML не очень хорошо подходит для бизнес-процессов. Нотация BPMN 2.0 использовалась нами для описания сквозного workflow прохождения заявки.\n\nЭто позволяет согласовать регламенты работы службы техподдержки с алгоритмами переключения статусов в базе данных.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Событийные статусы заявки", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("• Создано (New) — клиент отправил заявку.\n• В работе (Active) — менеджер назначил специалиста.\n• Ожидание оценки — специалист оценивает часы.\n• Выполнено (Closed) — работа завершена.\n• Переоткрыто (Reopened) — проблема клиента осталась.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Зачем использовать BPMN и событийные статусы заявки", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "UML не очень хорошо подходит для бизнес-процессов. Нотация BPMN 2.0 использовалась нами для описания сквозного workflow прохождения заявки.\n\n" +
+      "Это позволяет согласовать регламенты работы службы техподдержки с алгоритмами переключения статусов в базе данных.\n\n" +
+      "Событийные статусы заявки:\n" +
+      "• Создано (New) — клиент отправил заявку.\n" +
+      "• В работе (Active) — менеджер назначил специалиста.\n" +
+      "• Ожидание оценки — специалист оценивает часы.\n" +
+      "• Выполнено (Closed) — работа завершена.\n" +
+      "• Переоткрыто (Reopened) — проблема клиента осталась.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 11: Diagrams as Code: PlantUML & Mermaid
+  // Slide 11: Diagrams as Code: PlantUML & Mermaid (card + codeBox, не меняем)
   {
     const s = cs(pres, "Diagrams as Code: PlantUML & Mermaid.js");
     card(s, pres, MX, CY, 4.4, CH, C.ICE);
     s.addText("Сущность подхода", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria" });
     s.addText("Вместо рисования мышкой в тяжелых редакторах, мы описываем архитектуру текстом (кодом). Специальные движки PlantUML или Mermaid автоматически генерируют красивую векторную SVG/PNG диаграмму.\n\nКод диаграмм хранится прямо в Git-репозитории проекта.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
+      color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top" });
 
     const { codeBox } = require("./design.cjs");
     codeBox(s, pres, MX + 4.7, CY, 4.46, CH,
@@ -233,7 +285,7 @@ async function createP4(outDir) {
       "@endum", 10.5);
   }
 
-  // Slide 12: Сравнение инструментов и подходов
+  // Slide 12: Сравнение инструментов и подходов (таблица, не меняем)
   {
     const s = cs(pres, "Сравнение инструментов моделирования");
     const matrix = [
@@ -248,25 +300,30 @@ async function createP4(outDir) {
       hdr(matrix[0]),
       ...matrix.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 11, fontFace: "Calibri",
+      fontSize: 11, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.5, 3.3, 3.36], rowH: 0.65 });
   }
 
-  // Slide 13: Трассировка моделей на физический код
+  // Slide 13: Трассировка моделей на физический код (было две колонки -> одна)
   {
     const s = cs(pres, "Трассировка моделей на физический код");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("UML Class → Drizzle ORM Schema", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Связи 1-ко-многим между сущностями `User`, `Ticket` и `Message` на диаграмме классов UML преобразуются в реальные связи `foreign key` в файле описания схемы БД `/db/schema.ts`.\n\nКаждому атрибуту класса сопоставляется строгий тип поля (UUID, text, integer, timestamp).", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("UML Component → Docker-контейнеры", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Каждый отдельный прямоугольник-компонент на нашей UML Component Diagram запускается как изолированный процесс в своем собственном контейнере Docker. Сборка и сетевые мосты (bridges) между ними описываются в конфигурационном манифесте `docker-compose.yml`.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("UML Class → Drizzle ORM Schema и UML Component → Docker-контейнеры", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "UML Class → Drizzle ORM Schema:\n" +
+      "Связи 1-ко-многим между сущностями `User`, `Ticket` и `Message` на диаграмме классов UML преобразуются в реальные связи `foreign key` в файле описания схемы БД `/db/schema.ts`.\n\n" +
+      "Каждому атрибуту класса сопоставляется строгий тип поля (UUID, text, integer, timestamp).\n\n" +
+      "UML Component → Docker-контейнеры:\n" +
+      "Каждый отдельный прямоугольник-компонент на нашей UML Component Diagram запускается как изолированный процесс в своем собственном контейнере Docker. Сборка и сетевые мосты (bridges) между ними описываются в конфигурационном манифесте `docker-compose.yml`.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
   // Slide 14: Заключение

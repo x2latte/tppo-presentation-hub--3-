@@ -8,27 +8,47 @@ async function createP3(outDir) {
   // Slide 1: Cover
   addCover(pres, "Тема 3", "Интерфейс подсистем\nSubsystem Interfaces");
 
-  // Slide 2: Что такое интерфейс подсистемы?
+  // === Новый слайд: Постановка задачи ===
   {
-    const s = cs(pres, "Что такое интерфейс подсистемы?");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Понятие интерфейса-контракта", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Интерфейс — это четко определенная граница взаимодействия (стык) между независимыми частями системы. Он выступает в роли контракта: одна сторона обязуется предоставить данные строго определенного формата, а вторая — принять их.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Зачем проектировать интерфейсы?", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText([
-      { text: "Полная инкапсуляция: скрытие деталей реализации подсистемы.", options: { bullet: true, breakLine: true } },
-      { text: "Слабая связанность: замена бэкенда не ломает верстку фронтенда.", options: { bullet: true, breakLine: true } },
-      { text: "Параллельная разработка команд по заранее согласованным мокам.", options: { bullet: true } },
-    ], { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11.5, fontFace: "Calibri" });
+    const s = cs(pres, "Постановка задачи моделирования");
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Постановка практической задачи", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "• Обеспечить стабильное взаимодействие Frontend, Backend, двух баз PostgreSQL, MinIO и внешней системы 1С.\n\n" +
+      "Конкретная задача моделирования:\n" +
+      "• Описать интерфейсы (контракты) между всеми подсистемами для достижения слабой связанности, масштабируемости и отказоустойчивости.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 3: Подсистемы в нашем проекте
+  // Slide 2: Что такое интерфейс подсистемы? (было две колонки -> одна)
+  {
+    const s = cs(pres, "Что такое интерфейс подсистемы?");
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Понятие интерфейса-контракта и зачем его проектировать", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Интерфейс — это четко определенная граница взаимодействия (стык) между независимыми частями системы. Он выступает в роли контракта: одна сторона обязуется предоставить данные строго определенного формата, а вторая — принять их.\n\n" +
+      "Зачем проектировать интерфейсы?\n" +
+      "• Полная инкапсуляция: скрытие деталей реализации подсистемы.\n" +
+      "• Слабая связанность: замена бэкенда не ломает верстку фронтенда.\n" +
+      "• Параллельная разработка команд по заранее согласованным мокам.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
+  }
+
+  // Slide 3: Подсистемы в нашем проекте (без изменений, это сетка)
   {
     const s = cs(pres, "Подсистемы в проекте client-portal");
     const subs = [
@@ -49,11 +69,11 @@ async function createP3(outDir) {
       s.addText(sub.n, { x: x + 0.15, y: y + 0.08, w: cw - 0.3, h: 0.32,
         color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria" });
       s.addText(sub.d, { x: x + 0.15, y: y + 0.42, w: cw - 0.3, h: rh - 0.5,
-        color: C.DARK, fontSize: 10.5, fontFace: "Calibri" });
+        color: C.DARK, fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top" });
     });
   }
 
-  // Slide 4: Спецификация стыковки подсистем (Таблица)
+  // Slide 4: Спецификация стыковки подсистем (Таблица) — без изменений
   {
     const s = cs(pres, "Стыковка подсистем: спецификация интерфейсов");
     const interfaces = [
@@ -69,12 +89,12 @@ async function createP3(outDir) {
       hdr(interfaces[0]),
       ...interfaces.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 10.5, fontFace: "Calibri",
+      fontSize: 12, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [2.5, 2.8, 3.86], rowH: 0.58 });
   }
 
-  // Slide 5: Диаграмма компонентов UML
+  // Slide 5: Диаграмма компонентов UML (без изменений)
   {
     const s = cs(pres, "Диаграмма компонентов UML (Component Diagram)");
     const boxes = [
@@ -99,7 +119,7 @@ async function createP3(outDir) {
     s.addShape(pres.shapes.LINE, { x: 5.8, y: CY + 2.5, w: 0.7, h: 0, line: { color: C.TEAL, pt: 1.5 } });
   }
 
-  // Slide 6: Спецификация REST API: /api/tickets
+  // Slide 6: Спецификация REST API: /api/tickets (таблица, без изменений)
   {
     const s = cs(pres, "Спецификация REST API: /api/tickets");
     const routes = [
@@ -114,137 +134,175 @@ async function createP3(outDir) {
       hdr(routes[0]),
       ...routes.slice(1).map((row, i) => dr(row, i % 2 === 0)),
     ], { x: MX, y: CY, w: CW, h: CH,
-      fontSize: 11, fontFace: "Calibri",
+      fontSize: 11, fontFace: "Times New Roman", align: "left", valign: "top",
       border: { pt: 0.5, color: C.ICE2 },
       colW: [1.3, 2.2, 1.8, 3.86], rowH: 0.7 });
   }
 
-  // Slide 7: Безопасность и проверка прав в REST API
+  // Slide 7: Безопасность и проверка прав в REST API (было две колонки -> одна)
   {
     const s = cs(pres, "REST API: Безопасность и Middleware");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Проверка JWT-токенов (Auth Middleware)", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Каждый защищенный роут API проходит проверку в промежуточном слое `verifyToken`. Он считывает заголовок `Authorization: Bearer <token>`, валидирует подпись и извлекает `userId` и `role`, прикрепляя их к объекту запроса `req.user`.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Безопасное разграничение ролей (RBAC)", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("• Роуты `/api/tickets` доступны клиенту для чтения только своих обращений.\n• Роуты `/api/manager/*` доступны только пользователям с флагом `role='manager'`.\n• Любые несанкционированные попытки доступа блокируются ошибками 401 Unauthorized или 403 Forbidden.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Аутентификация, RBAC и защита API", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Проверка JWT-токенов (Auth Middleware):\n" +
+      "Каждый защищенный роут API проходит проверку в промежуточном слое `verifyToken`. Он считывает заголовок `Authorization: Bearer <token>`, валидирует подпись и извлекает `userId` и `role`, прикрепляя их к объекту запроса `req.user`.\n\n" +
+      "Безопасное разграничение ролей (RBAC):\n" +
+      "• Роуты `/api/tickets` доступны клиенту для чтения только своих обращений.\n" +
+      "• Роуты `/api/manager/*` доступны только пользователям с флагом `role='manager'`.\n" +
+      "• Любые несанкционированные попытки доступа блокируются ошибками 401 Unauthorized или 403 Forbidden.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 8: Интерфейс реального времени: WebSocket
+  // Slide 8: Интерфейс реального времени: WebSocket (было две колонки -> одна)
   {
     const s = cs(pres, "Интерфейс реального времени: WebSocket");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Протокол и подключение", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("WebSocket обеспечивает постоянный двусторонний обмен данными без оверхеда HTTP-заголовков. При открытии карточки тикета клиент подключается к сокет-серверу и подписывается на комнату `ticket:<ticketId>`, отправляя событие `join`.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("События WebSocket-сервиса", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("• `message:send` — отправка нового сообщения в чат тикета.\n• `message:receive` — получение сообщения от собеседника в реальном времени.\n• `ticket:status_changed` — push-оповещение клиента о смене статуса обращения менеджером или базой 1С.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Протокол, подключение и события WebSocket", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left", valign: "top"
+    });
+    s.addText(
+      "WebSocket обеспечивает постоянный двусторонний обмен данными без оверхеда HTTP-заголовков. При открытии карточки тикета клиент подключается к сокет-серверу и подписывается на комнату `ticket:<ticketId>`, отправляя событие `join`.\n\n" +
+      "События WebSocket-сервиса:\n" +
+      "• `message:send` — отправка нового сообщения в чат тикета.\n" +
+      "• `message:receive` — получение сообщения от собеседника в реальном времени.\n" +
+      "• `ticket:status_changed` — push-оповещение клиента о смене статуса обращения менеджером или базой 1С.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 9: Интерфейс хранилища файлов: S3 Presigned URLs
+  // Slide 9: Интерфейс хранилища файлов: S3 Presigned URLs (было две колонки -> одна)
   {
     const s = cs(pres, "Интерфейс хранилища файлов: S3 Presigned URLs");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Проблема классического подхода", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.RED, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Обычно файлы загружают на бэкенд API-сервера, а тот перекладывает их в хранилище. Это забивает дисковый кэш, перегружает оперативную память Node.js бинарным буфером данных и блокирует поток событий (Event Loop) при загрузке тяжелых логов или баз 1С.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Решение: Временные ссылки S3", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.GREEN, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("1. Фронтенд шлет запрос на `/api/files/presigned-put`.\n2. Бэкенд за миллисекунду генерирует криптографически подписанный URL с лимитом жизни 15 минут.\n3. Фронтенд шлет бинарный файл напрямую в корзину MinIO. Бэкенд не нагружается.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Проблема классического подхода и решение через presigned URLs", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left", valign: "top"
+    });
+    s.addText(
+      "Обычно файлы загружают на бэкенд API-сервера, а тот перекладывает их в хранилище. Это забивает дисковый кэш, перегружает оперативную память Node.js бинарным буфером данных и блокирует поток событий (Event Loop) при загрузке тяжелых логов или баз 1С.\n\n" +
+      "Решение: Временные ссылки S3\n" +
+      "1. Фронтенд шлет запрос на `/api/files/presigned-put`.\n" +
+      "2. Бэкенд за миллисекунду генерирует криптографически подписанный URL с лимитом жизни 15 минут.\n" +
+      "3. Фронтенд шлет бинарный файл напрямую в корзину MinIO. Бэкенд не нагружается.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 10: Интерфейс базы данных PostgreSQL (SQL/Drizzle)
+  // Slide 10: Интерфейс базы данных PostgreSQL (SQL/Drizzle) (было две колонки -> одна)
   {
     const s = cs(pres, "Интерфейс СУБД: Drizzle ORM + Пул соединений");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Пул соединений (Connection Pool)", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Создание TCP-соединения с Postgres на каждый запрос — дорогая операция. Бэкенд инициализирует пул соединений `node-postgres` с лимитом от 10 до 20 активных сессий. Это позволяет мгновенно выполнять SQL-запросы за счет повторного использования открытых сокетов.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Преимущества Drizzle ORM", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("• Полная типобезопасность возвращаемых строк.\n• Отсутствие оверхеда традиционных тяжелых ORM (код Drizzle компилируется в эффективные нативные сырые SQL-запросы).\n• Автоматическое управление миграциями и версионированием таблиц.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Пул соединений и преимущества Drizzle ORM", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Создание TCP-соединения с Postgres на каждый запрос — дорогая операция. Бэкенд инициализирует пул соединений `node-postgres` с лимитом от 10 до 20 активных сессий. Это позволяет мгновенно выполнять SQL-запросы за счет повторного использования открытых сокетов.\n\n" +
+      "Преимущества Drizzle ORM:\n" +
+      "• Полная типобезопасность возвращаемых строк.\n" +
+      "• Отсутствие оверхеда традиционных тяжелых ORM (код Drizzle компилируется в эффективные нативные сырые SQL-запросы).\n" +
+      "• Автоматическое управление миграциями и версионированием таблиц.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 11: 1С Интеграция: Outbox-паттерн
+  // Slide 11: 1С Интеграция: Outbox-паттерн (было две колонки -> одна)
   {
     const s = cs(pres, "Интеграция с 1С: Асинхронный Outbox Pattern");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Проблема синхронной интеграции", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.RED, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Если при нажатии кнопки 'Создать тикет' слать запрос напрямую в 1С по HTTP REST: при сбое связи, перегрузке или плановом перезапуске 1С клиент получит ошибку 500, а тикет будет потерян. Это недопустимо для бизнес-системы.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Асинхронное решение Outbox", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.GREEN, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("1. Тикет и событие в таблицу `outbox` пишутся в локальный Postgres в рамках одной ACID транзакции.\n2. Фоновый воркер Node.js раз в 5с шлет события в симулятор 1С.\n3. При успехе ставит статус `processed`. При сбое повторяет попытку с задержкой.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Проблема синхронной интеграции и решение Outbox", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Если при нажатии кнопки 'Создать тикет' слать запрос напрямую в 1С по HTTP REST: при сбое связи, перегрузке или плановом перезапуске 1С клиент получит ошибку 500, а тикет будет потерян. Это недопустимо для бизнес-системы.\n\n" +
+      "Асинхронное решение Outbox:\n" +
+      "1. Тикет и событие в таблицу `outbox` пишутся в локальный Postgres в рамках одной ACID транзакции.\n" +
+      "2. Фоновый воркер Node.js раз в 5с шлет события в симулятор 1С.\n" +
+      "3. При успехе ставит статус `processed`. При сбое повторяет попытку с задержкой.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 12: Защита интерфейсов: CORS и Rate Limiting
+  // Slide 12: Защита интерфейсов: CORS и Rate Limiting (было две колонки -> одна)
   {
     const s = cs(pres, "Защита стыков: CORS, Rate Limiting и Валидация");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Rate Limiting (Защита от DOS)", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Чтобы злоумышленники не завалили базу запросами и не перегрузили СУБД, на бэкенде включен `express-rate-limit`. Ограничение: максимум 150 запросов в 1 минуту с одного IP-адреса. Для роутов отправки SMS-кодов лимит еще жестче: 3 запроса в минуту.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Cross-Origin Resource Sharing (CORS)", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Бэкенд принимает запросы только со строго разрешенного списка доменов (White List), прописанных в переменной `CORS_ALLOWED_ORIGINS`. Попытки отправки AJAX-запросов со сторонних вредоносных фишинговых сайтов блокируются на уровне браузера.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Ограничение запросов и контроль источников", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Rate Limiting (Защита от DOS):\n" +
+      "Чтобы злоумышленники не завалили базу запросами и не перегрузили СУБД, на бэкенде включен `express-rate-limit`. Ограничение: максимум 150 запросов в 1 минуту с одного IP-адреса. Для роутов отправки SMS-кодов лимит еще жестче: 3 запроса в минуту.\n\n" +
+      "Cross-Origin Resource Sharing (CORS):\n" +
+      "Бэкенд принимает запросы только со строго разрешенного списка доменов (White List), прописанных в переменной `CORS_ALLOWED_ORIGINS`. Попытки отправки AJAX-запросов со сторонних вредоносных фишинговых сайтов блокируются на уровне браузера.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 13: Заменяемость и масштабирование интерфейсов
+  // Slide 13: Заменяемость и масштабирование интерфейсов (было две колонки -> одна)
   {
     const s = cs(pres, "Гибкость и заменяемость интерфейсов");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Замена S3-провайдера за 1 минуту", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Поскольку загрузка файлов спроектирована по стандартному протоколу AWS S3 API, мы можем заменить локальный контейнер MinIO на коммерческое Яндекс.Облако (Yandex Object Storage) без изменения единой строчки кода бэкенда — просто изменив `S3_ENDPOINT` в `.env`.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Масштабирование бэкенда", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Так как бэкенд спроектирован по принципу 'Stateless' (состояние сессии не хранится в памяти Node.js, а пишется в СУБД Postgres), мы можем запустить 5 параллельных контейнеров Express за балансировщиком Nginx для распределения нагрузки.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Замена S3-провайдера и масштабирование бэкенда", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria", align: "left", valign: "top"
+    });
+    s.addText(
+      "Замена S3-провайдера за 1 минуту:\n" +
+      "Поскольку загрузка файлов спроектирована по стандартному протоколу AWS S3 API, мы можем заменить локальный контейнер MinIO на коммерческое Яндекс.Облако (Yandex Object Storage) без изменения единой строчки кода бэкенда — просто изменив `S3_ENDPOINT` в `.env`.\n\n" +
+      "Масштабирование бэкенда:\n" +
+      "Так как бэкенд спроектирован по принципу 'Stateless' (состояние сессии не хранится в памяти Node.js, а пишется в СУБД Postgres), мы можем запустить 5 параллельных контейнеров Express за балансировщиком Nginx для распределения нагрузки.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
-  // Slide 13.5: Отказоустойчивость интерфейсов и сбои
+  // Slide 13.5: Отказоустойчивость интерфейсов и сбои (было две колонки -> одна)
   {
     const s = cs(pres, "Отказоустойчивость интерфейсов и сбои");
-    card(s, pres, MX, CY, 4.4, CH, C.ICE);
-    s.addText("Сбои сетевого подключения (Offline-First WS)", { x: MX + 0.18, y: CY + 0.12, w: 4.04, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("При отсутствии интернета во время отправки сообщений по WebSocket, чат-клиент временно сохраняет сообщение в LocalStorage и включает статус 'Ожидание сети'. После реконнекта сокета сообщения отправляются автоматически с сохранением исходного порядка.", { x: MX + 0.18, y: CY + 0.62, w: 4.04, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
-
-    card(s, pres, MX + 4.7, CY, 4.46, CH, C.GRNL);
-    s.addText("Конфликты API (Optimistic Locking)", { x: MX + 4.88, y: CY + 0.12, w: 4.1, h: 0.40,
-      color: C.NAVY, fontSize: 13, bold: true, fontFace: "Cambria" });
-    s.addText("Если клиент и менеджер редактируют одно обращение через REST-интерфейс одновременно, бэкенд сверяет поле 'version'. Первая транзакция успешно фиксируется, а второй возвращается код ошибки 409 Conflict с предложением обновить форму.", { x: MX + 4.88, y: CY + 0.62, w: 4.1, h: 3.2,
-      color: C.DARK, fontSize: 11, fontFace: "Calibri" });
+    card(s, pres, MX, CY, CW, CH, C.ICE);
+    s.addText("Сбои сети и конфликты API", {
+      x: MX + 0.18, y: CY + 0.12, w: CW - 0.36, h: 0.45,
+      color: C.NAVY, fontSize: 12, bold: true, fontFace: "Cambria"
+    });
+    s.addText(
+      "Сбои сетевого подключения (Offline-First WS):\n" +
+      "При отсутствии интернета во время отправки сообщений по WebSocket, чат-клиент временно сохраняет сообщение в LocalStorage и включает статус 'Ожидание сети'. После реконнекта сокета сообщения отправляются автоматически с сохранением исходного порядка.\n\n" +
+      "Конфликты API (Optimistic Locking):\n" +
+      "Если клиент и менеджер редактируют одно обращение через REST-интерфейс одновременно, бэкенд сверяет поле 'version'. Первая транзакция успешно фиксируется, а второй возвращается код ошибки 409 Conflict с предложением обновить форму.",
+      {
+        x: MX + 0.18, y: CY + 0.65, w: CW - 0.36, h: CH - 0.9,
+        color: C.DARK, fontSize: 16, fontFace: "Times New Roman", align: "left", valign: "top"
+      }
+    );
   }
 
   // Slide 14: Заключение
